@@ -3,6 +3,7 @@ import 'package:todo_task/addtask.dart';
 import 'package:todo_task/fetchtodos.dart';
 import 'package:todo_task/hometab.dart';
 import 'package:todo_task/main.dart';
+import 'package:todo_task/tasks.dart';
 
 class Homescreen extends StatefulWidget {
   const Homescreen({super.key});
@@ -27,8 +28,9 @@ class _HomescreenState extends State<Homescreen> {
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
             tabs = [
-              HomeTab(todos: snapshot.requireData),
+              HomeTab(todos: snapshot.data ?? List.empty()),
               AddTask(),
+              TasksTab()
             ];
             return Scaffold(
               bottomNavigationBar: BottomNavigationBar(

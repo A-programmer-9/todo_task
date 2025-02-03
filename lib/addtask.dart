@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_task/dbHandler.dart';
 
 class AddTask extends StatefulWidget {
   const AddTask({super.key});
@@ -28,8 +29,16 @@ class _AddTaskState extends State<AddTask> {
             ),
             Padding(
                 padding: EdgeInsets.only(top: 20),
-                child:
-                    ElevatedButton(onPressed: () {}, child: Text("Add Task")))
+                child: ElevatedButton(
+                    onPressed: () async {
+                      String title = titleCon.text;
+                      String desc = descCon.text;
+                      await DBHandler.instance.insertInDB(
+                          "Todos", {"title": title, "description": desc});
+                      titleCon.text = "";
+                      descCon.text = "";
+                    },
+                    child: Text("Add Task")))
           ],
         ),
       ),

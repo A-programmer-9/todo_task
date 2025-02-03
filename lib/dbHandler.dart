@@ -26,7 +26,7 @@ class DBHandler {
       version: 1,
       onCreate: (db, version) async {
         await db.execute(
-            "CREATE TABLE Todos (todo_id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, Description Text)");
+            "CREATE TABLE Todos (todo_id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, description Text)");
       },
     );
   }
