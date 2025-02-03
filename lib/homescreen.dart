@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_task/addtask.dart';
 import 'package:todo_task/fetchtodos.dart';
 import 'package:todo_task/hometab.dart';
 import 'package:todo_task/main.dart';
@@ -25,7 +26,10 @@ class _HomescreenState extends State<Homescreen> {
         future: fetchFromApi(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
-            tabs = [HomeTab(todos: snapshot.requireData)];
+            tabs = [
+              HomeTab(todos: snapshot.requireData),
+              AddTask(),
+            ];
             return Scaffold(
               bottomNavigationBar: BottomNavigationBar(
                 currentIndex: tabIndex,
