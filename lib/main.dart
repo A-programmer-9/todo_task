@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_task/homescreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,10 +13,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'TODOs',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
       home: const MyHomePage(),
     );
   }
@@ -52,7 +49,12 @@ class _MyHomePageState extends State<MyHomePage> {
             Padding(
                 padding: EdgeInsets.only(top: 20),
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (BuildContext context) {
+                      return Homescreen();
+                    }));
+                  },
                   child: Text("Login"),
                 ))
           ],
