@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:todo_task/dbHandler.dart';
 import 'package:todo_task/homescreen.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  DBHandler.instance.getDatabase;
   runApp(const MyApp());
 }
 
